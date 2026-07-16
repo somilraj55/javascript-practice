@@ -12,10 +12,9 @@
 // while loop executes code until
 // the condition becomes false.
 
-
-// Syntax
-
 /*
+Syntax
+
 while(condition){
     // code
 }
@@ -30,18 +29,10 @@ while(condition){
 
 let i = 1;
 
-while(i <= 5){
+while (i <= 5) {
     console.log(i);
     i++;
 }
-
-// Output
-// 1
-// 2
-// 3
-// 4
-// 5
-
 
 
 
@@ -52,18 +43,10 @@ while(i <= 5){
 
 let j = 5;
 
-while(j >= 1){
+while (j >= 1) {
     console.log(j);
     j--;
 }
-
-// Output
-// 5
-// 4
-// 3
-// 2
-// 1
-
 
 
 
@@ -76,16 +59,14 @@ let num = 987654321;
 
 let count = 0;
 
-while(num > 0){
+while (num > 0) {
     num = Math.floor(num / 10);
     count++;
 }
 
 console.log(count);
 
-// Output
-// 9
-
+// Output: 9
 
 
 
@@ -98,7 +79,7 @@ num = 12345;
 
 let reverse = 0;
 
-while(num > 0){
+while (num > 0) {
 
     let lastDigit = num % 10;
 
@@ -110,9 +91,7 @@ while(num > 0){
 
 console.log(reverse);
 
-// Output
-// 54321
-
+// Output: 54321
 
 
 
@@ -125,7 +104,7 @@ num = 12345;
 
 let sum = 0;
 
-while(num > 0){
+while (num > 0) {
 
     let lastDigit = num % 10;
 
@@ -137,9 +116,90 @@ while(num > 0){
 
 console.log(sum);
 
-// Output
-// 15
+// Output: 15
 
+
+
+// ==========================================
+// Question 4
+// Product of Digits
+// ==========================================
+
+num = 12345;
+
+let product = 1;
+
+while (num > 0) {
+
+    let lastDigit = num % 10;
+
+    product = product * lastDigit;
+
+    num = Math.floor(num / 10);
+
+}
+
+console.log(product);
+
+// Output: 120
+
+
+
+// ==========================================
+// Question 5
+// Palindrome Number
+// ==========================================
+
+num = 121;
+
+let original = num;
+
+reverse = 0;
+
+while (num > 0) {
+
+    let lastDigit = num % 10;
+
+    reverse = reverse * 10 + lastDigit;
+
+    num = Math.floor(num / 10);
+
+}
+
+if (original === reverse) {
+    console.log("Palindrome");
+} else {
+    console.log("Not Palindrome");
+}
+
+
+
+// ==========================================
+// Question 6
+// Armstrong Number
+// ==========================================
+
+num = 153;
+
+original = num;
+
+sum = 0;
+
+while (num > 0) {
+
+    let lastDigit = num % 10;
+
+    sum = sum + (lastDigit ** 3);
+
+    num = Math.floor(num / 10);
+
+}
+
+if (original === sum) {
+    console.log("Armstrong");
+} else {
+    console.log("Not Armstrong");
+}
 
 
 
@@ -147,29 +207,39 @@ console.log(sum);
 // Revision Notes
 // ==========================================
 
-// while loop
-// Executes until condition becomes false.
-
-
 // Count Digits
-
 // count++;
 // num = Math.floor(num / 10);
 
 
 // Reverse Number
-
 // lastDigit = num % 10;
 // reverse = reverse * 10 + lastDigit;
 // num = Math.floor(num / 10);
 
 
 // Sum of Digits
-
 // lastDigit = num % 10;
 // sum = sum + lastDigit;
 // num = Math.floor(num / 10);
 
+
+// Product of Digits
+// lastDigit = num % 10;
+// product = product * lastDigit;
+// num = Math.floor(num / 10);
+
+
+// Palindrome Number
+// original = num;
+// reverse = reverse * 10 + lastDigit;
+// if(original === reverse)
+
+
+// Armstrong Number
+// original = num;
+// sum = sum + (lastDigit ** 3);
+// if(original === sum)
 
 
 
@@ -177,11 +247,6 @@ console.log(sum);
 // Important Concepts
 // ==========================================
 
-// % 10
-// Gives the last digit.
-
-// Math.floor(num / 10)
-// Removes the last digit.
-
-// while(num > 0)
-// Loop runs until the number becomes 0.
+// % 10                -> Gives the last digit
+// Math.floor(num / 10) -> Removes the last digit
+// while(num > 0)       -> Loop runs until number becomes 0
