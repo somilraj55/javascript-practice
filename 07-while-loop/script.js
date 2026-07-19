@@ -75,7 +75,7 @@ console.log(count);
 // Reverse Number
 // ==========================================
 
-num = 12345;
+let num = 12345;
 
 let reverse = 0;
 
@@ -100,7 +100,7 @@ console.log(reverse);
 // Sum of Digits
 // ==========================================
 
-num = 12345;
+let num = 12345;
 
 let sum = 0;
 
@@ -125,7 +125,7 @@ console.log(sum);
 // Product of Digits
 // ==========================================
 
-num = 12345;
+let num = 12345;
 
 let product = 1;
 
@@ -150,7 +150,7 @@ console.log(product);
 // Palindrome Number
 // ==========================================
 
-num = 121;
+let num = 121;
 
 let original = num;
 
@@ -179,19 +179,17 @@ if (original === reverse) {
 // Armstrong Number
 // ==========================================
 
-num = 153;
+let num = 153;
 
-original = num;
+let original = num;
 
-sum = 0;
+let sum = 0;
 
 while (num > 0) {
 
     let lastDigit = num % 10;
-
-    sum = sum + (lastDigit ** 3);
-
     num = Math.floor(num / 10);
+    sum = sum + (lastDigit ** 3);
 
 }
 
@@ -250,3 +248,6 @@ if (original === sum) {
 // % 10                -> Gives the last digit
 // Math.floor(num / 10) -> Removes the last digit
 // while(num > 0)       -> Loop runs until number becomes 0
+
+
+
