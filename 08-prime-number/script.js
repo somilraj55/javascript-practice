@@ -2,7 +2,7 @@
 // Prime Number
 // ===============================
 
-let num = 11;
+let num = 2;
 let isPrime = true;
 
 if (num <= 1) {
@@ -22,3 +22,11 @@ if (num <= 1) {
         console.log("Not Prime");
     }
 }
+
+
+
+let num = 11;
+
+let isPrime = true;
+
+

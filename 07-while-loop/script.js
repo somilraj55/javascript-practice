@@ -154,7 +154,7 @@ let num = 121;
 
 let original = num;
 
-reverse = 0;
+let reverse = 0;
 
 while (num > 0) {
 
