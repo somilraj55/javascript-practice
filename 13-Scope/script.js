@@ -333,3 +333,196 @@ console.log(b);
 // var  -> Function Scoped
 // var ignores block scope.
 // let and const do not.
+
+
+
+
+
+
+
+
+
+
+
+
+// ========================================
+// Scope Chain (Lexical Scope)
+// ========================================
+
+// Scope Chain is the process of searching
+// for a variable.
+//
+// JavaScript searches:
+// 1. Current Scope
+// 2. Outer Scope
+// 3. Global Scope
+//
+// If the variable is not found anywhere,
+// JavaScript throws a ReferenceError.
+
+// ========================================
+// Example 1
+// ========================================
+
+let language = "JavaScript";
+
+function outer() {
+    console.log(language);
+}
+
+outer();
+
+// Output:
+// JavaScript
+
+// ========================================
+// Example 2
+// ========================================
+
+let framework = "React";
+
+function printFramework() {
+    let framework = "Angular";
+    console.log(framework);
+}
+
+printFramework();
+
+// Output:
+// Angular
+
+// ========================================
+// Example 3
+// ========================================
+
+let country = "India";
+
+function first() {
+
+    function second() {
+        console.log(country);
+    }
+
+    second();
+}
+
+first();
+
+// Output:
+// India
+
+// ========================================
+// Example 4
+// ========================================
+
+let a = 10;
+
+function one() {
+    let b = 20;
+
+    function two() {
+        let c = 30;
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+
+    two();
+}
+
+one();
+
+// Output:
+// 10
+// 20
+// 30
+
+// ========================================
+// Example 5
+// ========================================
+
+let x = 100;
+
+function demo() {
+    console.log(x);
+}
+
+demo();
+
+// Output:
+// 100
+
+// ========================================
+// Example 6
+// ========================================
+
+let message = "Hello";
+
+function firstFunction() {
+
+    function secondFunction() {
+        console.log(message);
+    }
+
+    secondFunction();
+}
+
+firstFunction();
+
+// Output:
+// Hello
+
+// ========================================
+// Variable Not Found
+// ========================================
+
+function test() {
+
+    // console.log(age);
+
+}
+
+test();
+
+// ReferenceError:
+// age is not defined
+
+// ========================================
+// Interview Revision
+// ========================================
+
+// 1. What is Scope Chain?
+// -> Scope Chain is the process of searching
+//    for a variable.
+//
+//    JavaScript first searches the current scope.
+//    If not found, it searches the outer scope.
+//    Finally, it searches the global scope.
+//    If the variable is not found anywhere,
+//    JavaScript throws a ReferenceError.
+
+// 2. What is Lexical Scope?
+// -> Lexical Scope means the accessibility
+//    of variables is determined by where
+//    they are written in the code.
+
+// 3. In which order does JavaScript search variables?
+// -> Current Scope
+// -> Outer Scope
+// -> Global Scope
+
+// 4. What happens if a variable is not found?
+// -> JavaScript throws a ReferenceError.
+
+// ========================================
+// Important Points
+// ========================================
+
+// JavaScript always searches the current scope first.
+// If not found, it searches the outer scope.
+// Finally, it searches the global scope.
+// If the variable is not found,
+// JavaScript throws a ReferenceError.
+
+// Scope Chain is also called Lexical Scope.
