@@ -191,3 +191,145 @@ demo();
 //
 // -> Because the local x is in the
 //    Temporal Dead Zone (TDZ).
+
+
+
+// ========================================
+// Block Scope
+// ========================================
+
+// A block means anything inside { }.
+// Variables declared with let and const
+// are accessible only inside that block.
+
+// ========================================
+// Example 1
+// ========================================
+
+{
+    let name = "Somil";
+    console.log(name);
+}
+
+// Output:
+// Somil
+
+// ========================================
+// Example 2
+// ========================================
+
+{
+    let age = 21;
+}
+
+// console.log(age);
+// ReferenceError: age is not defined
+
+// ========================================
+// Example 3
+// ========================================
+
+if (true) {
+    const city = "Bokaro";
+    console.log(city);
+}
+
+// Output:
+// Bokaro
+
+// ========================================
+// var is NOT Block Scoped
+// ========================================
+
+// var ignores block scope.
+
+{
+    var language = "JavaScript";
+}
+
+console.log(language);
+
+// Output:
+// JavaScript
+
+// ========================================
+// var is Function Scoped
+// ========================================
+
+function test() {
+    var x = 100;
+    console.log(x);
+}
+
+test();
+
+// Output:
+// 100
+
+// ========================================
+// var cannot be accessed outside function
+// ========================================
+
+function demo() {
+    var marks = 95;
+}
+
+// demo();
+
+// console.log(marks);
+// ReferenceError: marks is not defined
+
+// ========================================
+// let vs var
+// ========================================
+
+{
+    let a = 10;
+    var b = 20;
+}
+
+console.log(b);
+
+// console.log(a);
+// ReferenceError: a is not defined
+
+// Output:
+// 20
+
+// ========================================
+// Interview Revision
+// ========================================
+
+// 1. What is Block Scope?
+// -> A block is anything inside { }.
+//    Variables declared with let and const
+//    can only be accessed inside that block.
+
+// 2. Which keywords are block scoped?
+// -> let and const
+
+// 3. Is var block scoped?
+// -> No
+
+// 4. What is var?
+// -> var is Function Scoped.
+
+// 5. Can we access var outside a block?
+// -> Yes
+
+// 6. Can we access var outside a function?
+// -> No
+
+// 7. What error do we get when accessing
+//    let or const outside their block?
+// -> ReferenceError
+
+// ========================================
+// Important Points
+// ========================================
+
+// let  -> Block Scoped
+// const -> Block Scoped
+// var  -> Function Scoped
+// var ignores block scope.
+// let and const do not.
