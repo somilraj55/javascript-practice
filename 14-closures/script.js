@@ -255,3 +255,226 @@ b(); // 2
 // • Different Closures do not share variables.
 // • Every call to the outer function
 //   creates a new Closure.
+
+
+
+
+// ========================================
+// Private Variables & Data Hiding
+// ========================================
+
+// A Private Variable cannot be accessed
+// directly from outside the function.
+
+// Data Hiding means hiding internal data
+// and allowing access only through methods.
+
+// ========================================
+// Example 1 (Without Closure)
+// ========================================
+
+let balance = 1000;
+
+balance = 5000;
+
+console.log(balance);
+
+// Output:
+// 5000
+
+// Anyone can change the balance.
+
+// ========================================
+// Example 2 (Using Closure)
+// ========================================
+
+function bankAccount() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+            console.log(balance);
+        }
+
+    };
+
+}
+
+const account = bankAccount();
+
+account.deposit(500);
+account.deposit(1000);
+
+// Output:
+// 1500
+// 2500
+
+// ========================================
+// Example 3
+// ========================================
+
+function createUser() {
+
+    let age = 20;
+
+    return {
+
+        getAge() {
+            console.log(age);
+        }
+
+    };
+
+}
+
+const user = createUser();
+
+user.getAge();
+
+console.log(user.age);
+
+// Output:
+// 20
+// undefined
+
+// user.age does not exist because
+// age is a private variable.
+
+// ========================================
+// Example 4
+// ========================================
+
+function createStudent() {
+
+    let age = 20;
+
+    return {
+
+        getAge() {
+            return age;
+        }
+
+    };
+
+}
+
+const student = createStudent();
+
+student.age = 50;
+
+console.log(student.getAge());
+
+console.log(student.age);
+
+// Output:
+// 20
+// 50
+
+// student.age creates a new object property.
+// It does NOT change the private variable.
+
+// ========================================
+// Example 5
+// ========================================
+
+function bank() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+        },
+
+        getBalance() {
+            return balance;
+        }
+
+    };
+
+}
+
+const accountOne = bank();
+
+accountOne.deposit(500);
+
+console.log(accountOne.getBalance());
+
+accountOne.balance = 100000;
+
+console.log(accountOne.getBalance());
+
+console.log(accountOne.balance);
+
+// Output:
+// 1500
+// 1500
+// 100000
+
+// ========================================
+// Example 6
+// ========================================
+
+function bankTwo() {
+
+    let balance = 500;
+
+    return {
+
+        getBalance() {
+            return balance;
+        }
+
+    };
+
+}
+
+const acc = bankTwo();
+
+console.log(acc.balance);
+
+console.log(acc.getBalance());
+
+// Output:
+// undefined
+// 500
+
+// ========================================
+// Interview Revision
+// ========================================
+
+// 1. What is a Private Variable?
+// A variable that cannot be accessed
+// directly from outside the function.
+
+// 2. What is Data Hiding?
+// Hiding internal data and allowing
+// access only through methods.
+
+// 3. Can we access a private variable directly?
+// No.
+
+// 4. Why does user.age return undefined?
+// Because age is not an object property.
+// It is a private variable.
+
+// 5. Why does student.getAge() return 20
+// even after student.age = 50?
+// Because student.age creates a new object
+// property. It does not modify the private variable.
+
+// ========================================
+// Important Points
+// ========================================
+
+// • Closures help create Private Variables.
+// • Private Variables cannot be accessed directly.
+// • Data Hiding improves security.
+// • Object properties and private variables
+//   are different.
+// • Only closure methods can access
+//   private variables.
