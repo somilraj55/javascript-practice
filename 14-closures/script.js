@@ -478,3 +478,230 @@ console.log(acc.getBalance());
 //   are different.
 // • Only closure methods can access
 //   private variables.
+
+
+
+
+// ========================================
+// Complete Bank Account Project using Closures
+// ========================================
+
+// A real-world example of Closures.
+// The balance variable is private and
+// can only be accessed through methods.
+
+function bankAccount() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+            console.log("Deposited:", amount);
+        },
+
+        withdraw(amount) {
+            balance -= amount;
+            console.log("Withdrawn:", amount);
+        },
+
+        checkBalance() {
+            console.log("Current Balance:", balance);
+        }
+
+    };
+
+}
+
+const account = bankAccount();
+
+account.checkBalance();
+
+account.deposit(500);
+
+account.checkBalance();
+
+account.withdraw(300);
+
+account.checkBalance();
+
+// Output:
+// Current Balance: 1000
+// Deposited: 500
+// Current Balance: 1500
+// Withdrawn: 300
+// Current Balance: 1200
+
+// ========================================
+// Example 2
+// ========================================
+
+function bank() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+        },
+
+        checkBalance() {
+            return balance;
+        }
+
+    };
+
+}
+
+const accountOne = bank();
+
+accountOne.deposit(500);
+
+console.log(accountOne.checkBalance());
+
+accountOne.balance = 100000;
+
+console.log(accountOne.checkBalance());
+
+console.log(accountOne.balance);
+
+// Output:
+// 1500
+// 1500
+// 100000
+
+// accountOne.balance creates a new object property.
+// It does NOT modify the private variable.
+
+// ========================================
+// Real-World Use 1
+// Private Variables
+// ========================================
+
+function createUser() {
+
+    let password = "123456";
+
+    return {
+
+        getPassword() {
+            return password;
+        }
+
+    };
+
+}
+
+const user = createUser();
+
+console.log(user.getPassword());
+
+console.log(user.password);
+
+// Output:
+// 123456
+// undefined
+
+// ========================================
+// Real-World Use 2
+// Like Counter
+// ========================================
+
+function likeCounter() {
+
+    let likes = 0;
+
+    return function () {
+
+        likes++;
+
+        console.log("Likes:", likes);
+
+    };
+
+}
+
+const like = likeCounter();
+
+like();
+like();
+like();
+
+// Output:
+// Likes: 1
+// Likes: 2
+// Likes: 3
+
+// ========================================
+// Real-World Use 3
+// Shopping Cart
+// ========================================
+
+function cart() {
+
+    let items = 0;
+
+    return {
+
+        addItem() {
+
+            items++;
+
+            console.log("Items:", items);
+
+        }
+
+    };
+
+}
+
+const shopping = cart();
+
+shopping.addItem();
+
+shopping.addItem();
+
+shopping.addItem();
+
+// Output:
+// Items: 1
+// Items: 2
+// Items: 3
+
+// ========================================
+// Interview Revision
+// ========================================
+
+// Q1. What is Closure?
+// A Closure is created when an inner function
+// remembers the variables of its outer function
+// even after the outer function has finished
+// executing.
+
+// Q2. What are the real-world uses of Closures?
+// • Private Variables
+// • Data Hiding
+// • Counter
+// • Shopping Cart
+// • Bank Account
+// • Timers
+// • Callbacks
+
+// Q3. Why are Closures useful?
+// They preserve data, create private variables,
+// maintain state, and hide internal data.
+
+// ========================================
+// Important Points
+// ========================================
+
+// • Closure = Function + Lexical Environment.
+// • Closures remember outer variables.
+// • They help create Private Variables.
+// • They are used for Data Hiding.
+// • Every Closure has its own private memory.
+// • Different Closures do not share data.
+// • Widely used in counters, shopping carts,
+//   bank accounts, timers, and callbacks.
