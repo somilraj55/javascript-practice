@@ -267,3 +267,168 @@ console.log(length);
 // • unshift() adds element at the beginning.
 // • push() & unshift() return new length.
 // • pop() & shift() return removed element.
+
+
+
+
+// ========================================
+// slice() Method
+// ========================================
+
+// Definition:
+// slice() is used to copy a portion of an
+// array into a new array without modifying
+// the original array.
+
+// Syntax:
+// array.slice(startIndex, endIndex);
+
+// startIndex -> Included
+// endIndex -> Excluded
+
+// ========================================
+// Example 1
+// ========================================
+
+let fruits = ["Apple", "Mango", "Banana", "Orange"];
+
+let result = fruits.slice(1, 3);
+
+console.log(result);
+console.log(fruits);
+
+// Output:
+// ["Mango", "Banana"]
+// ["Apple", "Mango", "Banana", "Orange"]
+
+// Original array is NOT modified.
+
+// ========================================
+// Example 2
+// ========================================
+
+let numbers = [10, 20, 30, 40, 50];
+
+console.log(numbers.slice(2));
+
+// Output:
+// [30, 40, 50]
+
+// If endIndex is not provided,
+// slice() copies till the last element.
+
+// ========================================
+// Example 3
+// ========================================
+
+let technologies = ["HTML", "CSS", "JavaScript"];
+
+console.log(technologies.slice());
+
+// Output:
+// ["HTML", "CSS", "JavaScript"]
+
+// slice() without arguments
+// returns a copy of the entire array.
+
+// ========================================
+// Example 4
+// ========================================
+
+let colors = ["Red", "Green", "Blue", "Yellow"];
+
+console.log(colors.slice(1, 2));
+
+// Output:
+// ["Green"]
+
+// endIndex is NOT included.
+
+// ========================================
+// Practice Example 1
+// ========================================
+
+let arr1 = [10, 20, 30, 40];
+
+console.log(arr1.slice(1, 3));
+
+// Output:
+// [20, 30]
+
+// ========================================
+// Practice Example 2
+// ========================================
+
+let arr2 = ["A", "B", "C", "D"];
+
+console.log(arr2.slice(2));
+
+// Output:
+// ["C", "D"]
+
+// ========================================
+// Practice Example 3
+// ========================================
+
+let arr3 = ["HTML", "CSS", "JS"];
+
+let copy = arr3.slice();
+
+console.log(copy);
+console.log(arr3);
+
+// Output:
+// ["HTML", "CSS", "JS"]
+// ["HTML", "CSS", "JS"]
+
+// ========================================
+// Difference Between splice() and slice()
+// ========================================
+
+// splice()
+// • Modifies original array.
+// • Used to add, remove and replace elements.
+// • Returns removed elements.
+
+// slice()
+// • Does NOT modify original array.
+// • Used to copy elements.
+// • Returns copied elements.
+
+// ========================================
+// Interview Questions
+// ========================================
+
+// Q1. What is slice()?
+// slice() is used to copy a portion of an
+// array into a new array.
+
+// Q2. Does slice() modify the original array?
+// No.
+
+// Q3. What does slice() return?
+// A new array containing copied elements.
+
+// Q4. What is the difference between
+// splice() and slice()?
+
+// splice()
+// • Changes original array.
+// • Add, Remove, Replace.
+
+// slice()
+// • Does not change original array.
+// • Only copies elements.
+
+// ========================================
+// Important Points
+// ========================================
+
+// • slice() creates a new array.
+// • Original array remains unchanged.
+// • startIndex is included.
+// • endIndex is excluded.
+// • If endIndex is omitted,
+//   elements are copied till the end.
+// • slice() without arguments
+//   copies the whole array.
