@@ -1005,3 +1005,880 @@ console.log(numbers8);
 // → Executes a function for every element
 // → Returns undefined
 // → Does NOT create a new array
+
+
+
+// ========================================
+// map() Method
+// ========================================
+
+// Definition:
+// map() is an array method used to transform
+// each element of an array and return a new array.
+
+// map() does NOT modify the original array.
+
+// ========================================
+// Example 1 - Multiply Elements
+// ========================================
+
+let numbersMap = [1, 2, 3, 4];
+
+let mapResult = numbersMap.map((number) => {
+    return number * 2;
+});
+
+console.log(mapResult);
+
+// Output:
+// [2, 4, 6, 8]
+
+// ========================================
+// Example 2 - Add Value
+// ========================================
+
+let numbersMapTwo = [10, 20, 30];
+
+let mapResultTwo = numbersMapTwo.map((number) => {
+    return number + 5;
+});
+
+console.log(mapResultTwo);
+console.log(numbersMapTwo);
+
+// Output:
+// [15, 25, 35]
+// [10, 20, 30]
+
+// ========================================
+// Example 3 - Strings
+// ========================================
+
+let fruitsMap = ["apple", "banana", "mango"];
+
+let upperFruits = fruitsMap.map((fruit) => {
+    return fruit.toUpperCase();
+});
+
+console.log(upperFruits);
+
+// Output:
+// ["APPLE", "BANANA", "MANGO"]
+
+// ========================================
+// Example 4 - Callback Parameters
+// ========================================
+
+// map() callback can receive:
+// element
+// index
+// array
+
+let technologiesMap = ["HTML", "CSS", "JavaScript"];
+
+let techResult = technologiesMap.map((technology, index) => {
+    return index + " - " + technology;
+});
+
+console.log(techResult);
+
+// Output:
+// ["0 - HTML", "1 - CSS", "2 - JavaScript"]
+
+// ========================================
+// map() with Objects
+// ========================================
+
+let studentsMap = [
+    { name: "Somil", marks: 80 },
+    { name: "Rahul", marks: 90 },
+    { name: "Aman", marks: 70 }
+];
+
+let studentNames = studentsMap.map((student) => {
+    return student.name;
+});
+
+console.log(studentNames);
+
+// Output:
+// ["Somil", "Rahul", "Aman"]
+
+// ========================================
+// map() - Get Marks
+// ========================================
+
+let studentMarks = studentsMap.map((student) => {
+    return student.marks;
+});
+
+console.log(studentMarks);
+
+// Output:
+// [80, 90, 70]
+
+// ========================================
+// map() - Transform Objects
+// ========================================
+
+let updatedStudents = studentsMap.map((student) => {
+    return {
+        name: student.name,
+        marks: student.marks + 5
+    };
+});
+
+console.log(updatedStudents);
+
+// Output:
+// [
+//   { name: "Somil", marks: 85 },
+//   { name: "Rahul", marks: 95 },
+//   { name: "Aman", marks: 75 }
+// ]
+
+// ========================================
+// map() vs forEach()
+// ========================================
+
+// forEach()
+// → Performs an action
+// → Returns undefined
+
+// map()
+// → Transforms elements
+// → Returns a new array
+
+// ========================================
+// filter() Method
+// ========================================
+
+// Definition:
+// filter() is an array method used to create
+// a new array containing elements that satisfy
+// a specific condition.
+
+// filter() does NOT modify the original array.
+
+// ========================================
+// Example 1 - Numbers Greater Than 20
+// ========================================
+
+let numbersFilter = [10, 15, 20, 25, 30];
+
+let filterResult = numbersFilter.filter((number) => {
+    return number > 20;
+});
+
+console.log(filterResult);
+
+// Output:
+// [25, 30]
+
+// ========================================
+// Example 2 - Even Numbers
+// ========================================
+
+let numbersFilterTwo = [1, 2, 3, 4, 5, 6];
+
+let evenNumbers = numbersFilterTwo.filter((number) => {
+    return number % 2 === 0;
+});
+
+console.log(evenNumbers);
+
+// Output:
+// [2, 4, 6]
+
+// ========================================
+// Example 3 - Strings
+// ========================================
+
+let fruitsFilter = ["Apple", "Mango", "Banana", "Kiwi"];
+
+let shortFruits = fruitsFilter.filter((fruit) => {
+    return fruit.length <= 5;
+});
+
+console.log(shortFruits);
+
+// Output:
+// ["Apple", "Mango", "Kiwi"]
+
+// ========================================
+// filter() with Objects
+// ========================================
+
+let studentsFilter = [
+    { name: "Somil", marks: 80 },
+    { name: "Rahul", marks: 40 },
+    { name: "Aman", marks: 70 }
+];
+
+let passedStudents = studentsFilter.filter((student) => {
+    return student.marks >= 50;
+});
+
+console.log(passedStudents);
+
+// Output:
+// [
+//   { name: "Somil", marks: 80 },
+//   { name: "Aman", marks: 70 }
+// ]
+
+// ========================================
+// map() + filter() Chaining
+// ========================================
+
+// filter() → Select
+// map() → Transform
+
+let studentsChain = [
+    { name: "Somil", marks: 80 },
+    { name: "Rahul", marks: 45 },
+    { name: "Aman", marks: 70 }
+];
+
+let passedStudentNames = studentsChain
+    .filter((student) => {
+        return student.marks >= 50;
+    })
+    .map((student) => {
+        return student.name;
+    });
+
+console.log(passedStudentNames);
+
+// Output:
+// ["Somil", "Aman"]
+
+// ========================================
+// find() Method
+// ========================================
+
+// Definition:
+// find() is used to find the first element
+// that satisfies a condition.
+
+// find() returns the element itself.
+
+// If no element is found, it returns undefined.
+
+// ========================================
+// Example 1
+// ========================================
+
+let numbersFind = [10, 20, 30, 40];
+
+let findResult = numbersFind.find((number) => {
+    return number > 15;
+});
+
+console.log(findResult);
+
+// Output:
+// 20
+
+// ========================================
+// Example 2 - Not Found
+// ========================================
+
+let numbersFindTwo = [10, 20, 30];
+
+let findResultTwo = numbersFindTwo.find((number) => {
+    return number > 100;
+});
+
+console.log(findResultTwo);
+
+// Output:
+// undefined
+
+// ========================================
+// Example 3 - Objects
+// ========================================
+
+let studentsFind = [
+    { name: "Somil", marks: 40 },
+    { name: "Rahul", marks: 75 },
+    { name: "Aman", marks: 90 }
+];
+
+let studentFind = studentsFind.find((student) => {
+    return student.marks >= 50;
+});
+
+console.log(studentFind);
+
+// Output:
+// { name: "Rahul", marks: 75 }
+
+// ========================================
+// find() vs filter()
+// ========================================
+
+// find()
+// → First matching element
+// → Returns element
+// → Not found = undefined
+
+// filter()
+// → All matching elements
+// → Returns new array
+// → Not found = []
+
+// ========================================
+// some() Method
+// ========================================
+
+// Definition:
+// some() checks whether at least one element
+// satisfies a condition.
+
+// Returns true or false.
+
+// ========================================
+// Example 1
+// ========================================
+
+let numbersSome = [10, 20, 30, 40];
+
+let someResult = numbersSome.some((number) => {
+    return number > 35;
+});
+
+console.log(someResult);
+
+// Output:
+// true
+
+// ========================================
+// Example 2
+// ========================================
+
+let numbersSomeTwo = [10, 20, 30];
+
+let someResultTwo = numbersSomeTwo.some((number) => {
+    return number > 100;
+});
+
+console.log(someResultTwo);
+
+// Output:
+// false
+
+// ========================================
+// every() Method
+// ========================================
+
+// Definition:
+// every() checks whether all elements
+// satisfy a condition.
+
+// Returns true or false.
+
+// ========================================
+// Example 1
+// ========================================
+
+let numbersEvery = [10, 20, 30, 40];
+
+let everyResult = numbersEvery.every((number) => {
+    return number > 5;
+});
+
+console.log(everyResult);
+
+// Output:
+// true
+
+// ========================================
+// Example 2
+// ========================================
+
+let numbersEveryTwo = [10, 20, 3, 40];
+
+let everyResultTwo = numbersEveryTwo.every((number) => {
+    return number > 5;
+});
+
+console.log(everyResultTwo);
+
+// Output:
+// false
+
+// ========================================
+// some() vs every()
+// ========================================
+
+// some()
+// → At least ONE element must satisfy condition
+// → Returns true or false
+
+// every()
+// → ALL elements must satisfy condition
+// → Returns true or false
+
+// ========================================
+// reduce() Method
+// ========================================
+
+// Definition:
+// reduce() is used to process all elements
+// of an array and reduce them into a
+// single final value.
+
+// ========================================
+// Example 1 - Sum
+// ========================================
+
+let numbersReduce = [10, 20, 30, 40];
+
+let totalReduce = numbersReduce.reduce((acc, num) => {
+    return acc + num;
+}, 0);
+
+console.log(totalReduce);
+
+// Output:
+// 100
+
+// ========================================
+// Example 2 - Product
+// ========================================
+
+let numbersReduceTwo = [2, 3, 4];
+
+let productReduce = numbersReduceTwo.reduce((acc, num) => {
+    return acc * num;
+}, 1);
+
+console.log(productReduce);
+
+// Output:
+// 24
+
+// ========================================
+// Example 3 - Initial Value
+// ========================================
+
+let numbersReduceThree = [10, 20, 30];
+
+let resultReduce = numbersReduceThree.reduce((acc, num) => {
+    return acc + num;
+}, 100);
+
+console.log(resultReduce);
+
+// Output:
+// 160
+
+// ========================================
+// Example 4 - Without Initial Value
+// ========================================
+
+let numbersReduceFour = [10, 20, 30];
+
+let resultReduceTwo = numbersReduceFour.reduce((acc, num) => {
+    return acc + num;
+});
+
+console.log(resultReduceTwo);
+
+// Output:
+// 60
+
+// First element becomes initial accumulator.
+
+// 1st → acc = 10, num = 20
+// 2nd → acc = 30, num = 30
+// Result → 60
+
+// ========================================
+// reduce() with Objects
+// ========================================
+
+let studentsReduce = [
+    { name: "Somil", marks: 80 },
+    { name: "Rahul", marks: 70 },
+    { name: "Aman", marks: 90 }
+];
+
+let totalMarks = studentsReduce.reduce((acc, student) => {
+    return acc + student.marks;
+}, 0);
+
+console.log(totalMarks);
+
+// Output:
+// 240
+
+// ========================================
+// reduce() Important Terms
+// ========================================
+
+// acc → accumulator
+// Stores the accumulated result.
+
+// num / currentValue → current element.
+
+// initialValue → starting value.
+
+// ========================================
+// findIndex() Method
+// ========================================
+
+// Definition:
+// findIndex() returns the index of the first
+// element that satisfies a condition.
+
+// If no element is found, it returns -1.
+
+// ========================================
+// Example 1
+// ========================================
+
+let numbersFindIndex = [10, 20, 30, 40];
+
+let findIndexResult = numbersFindIndex.findIndex((num) => {
+    return num > 15;
+});
+
+console.log(findIndexResult);
+
+// Output:
+// 1
+
+// ========================================
+// Example 2 - Not Found
+// ========================================
+
+let numbersFindIndexTwo = [5, 10, 15];
+
+let findIndexResultTwo = numbersFindIndexTwo.findIndex((num) => {
+    return num > 100;
+});
+
+console.log(findIndexResultTwo);
+
+// Output:
+// -1
+
+// ========================================
+// Example 3 - Objects
+// ========================================
+
+let studentsFindIndex = [
+    { name: "Somil", marks: 40 },
+    { name: "Rahul", marks: 75 },
+    { name: "Aman", marks: 90 }
+];
+
+let studentIndex = studentsFindIndex.findIndex((student) => {
+    return student.name === "Aman";
+});
+
+console.log(studentIndex);
+
+// Output:
+// 2
+
+// ========================================
+// find() vs findIndex() vs filter()
+// ========================================
+
+// find()
+// → First matching element
+
+// findIndex()
+// → Index of first matching element
+
+// filter()
+// → New array containing all matching elements
+
+// ========================================
+// flat() Method
+// ========================================
+
+// Definition:
+// flat() is used to flatten nested arrays
+// and return a new array.
+
+// Default depth is 1.
+
+// ========================================
+// Example 1
+// ========================================
+
+let nestedArray = [1, 2, [3, 4], 5];
+
+let flatResult = nestedArray.flat();
+
+console.log(flatResult);
+
+// Output:
+// [1, 2, 3, 4, 5]
+
+// ========================================
+// Example 2 - Nested Array
+// ========================================
+
+let nestedArrayTwo = [1, [2, [3, 4]]];
+
+console.log(nestedArrayTwo.flat());
+
+// Output:
+// [1, 2, [3, 4]]
+
+// ========================================
+// Example 3 - Depth
+// ========================================
+
+let nestedArrayThree = [1, [2, [3, 4]]];
+
+console.log(nestedArrayThree.flat(2));
+
+// Output:
+// [1, 2, 3, 4]
+
+// ========================================
+// Example 4 - Infinity
+// ========================================
+
+let nestedArrayFour = [1, [2, [3, [4, 5]]]];
+
+console.log(nestedArrayFour.flat(Infinity));
+
+// Output:
+// [1, 2, 3, 4, 5]
+
+// ========================================
+// Important Points
+// ========================================
+
+// flat()
+// → Does NOT modify original array.
+// → Returns a new array.
+// → Default depth = 1.
+
+// ========================================
+// flatMap() Method
+// ========================================
+
+// Definition:
+// flatMap() combines map() and flat().
+// It transforms elements and flattens
+// the result by one level.
+
+// ========================================
+// Example 1
+// ========================================
+
+let numbersFlatMap = [1, 2, 3];
+
+let flatMapResult = numbersFlatMap.flatMap((num) => {
+    return [num, num * 2];
+});
+
+console.log(flatMapResult);
+
+// Output:
+// [1, 2, 2, 4, 3, 6]
+
+// ========================================
+// map() vs flatMap()
+// ========================================
+
+let numbersFlatMapTwo = [1, 2, 3];
+
+let mapArray = numbersFlatMapTwo.map((num) => {
+    return [num, num * 2];
+});
+
+console.log(mapArray);
+
+// Output:
+// [
+//   [1, 2],
+//   [2, 4],
+//   [3, 6]
+// ]
+
+let flatMapArray = numbersFlatMapTwo.flatMap((num) => {
+    return [num, num * 2];
+});
+
+console.log(flatMapArray);
+
+// Output:
+// [1, 2, 2, 4, 3, 6]
+
+// ========================================
+// Important Points
+// ========================================
+
+// map()
+// → Transform elements.
+
+// flatMap()
+// → Transform + flatten one level.
+
+// flatMap() does NOT modify original array.
+
+// ========================================
+// Array.isArray()
+// ========================================
+
+// Definition:
+// Array.isArray() checks whether a value
+// is an array.
+
+// It returns true or false.
+
+// ========================================
+// Example 1
+// ========================================
+
+let fruitsArray = ["Apple", "Mango", "Banana"];
+
+console.log(Array.isArray(fruitsArray));
+
+// Output:
+// true
+
+// ========================================
+// Example 2
+// ========================================
+
+let nameValue = "Somil";
+
+console.log(Array.isArray(nameValue));
+
+// Output:
+// false
+
+// ========================================
+// Example 3
+// ========================================
+
+console.log(Array.isArray([1, 2, 3]));
+console.log(Array.isArray(100));
+console.log(Array.isArray("JavaScript"));
+console.log(Array.isArray(true));
+
+// Output:
+// true
+// false
+// false
+// false
+
+// ========================================
+// typeof [] vs Array.isArray()
+// ========================================
+
+console.log(typeof []);
+console.log(Array.isArray([]));
+
+// Output:
+// object
+// true
+
+// typeof [] returns "object",
+// therefore Array.isArray() is used
+// to specifically check for an array.
+
+// ========================================
+// FINAL ARRAY METHODS SUMMARY
+// ========================================
+
+// push()
+// → Adds at end
+// → Returns new length
+
+// pop()
+// → Removes from end
+// → Returns removed element
+
+// shift()
+// → Removes from beginning
+// → Returns removed element
+
+// unshift()
+// → Adds at beginning
+// → Returns new length
+
+// splice()
+// → Adds, removes, or replaces
+// → Modifies original array
+// → Returns removed elements
+
+// slice()
+// → Copies a portion
+// → Does NOT modify original array
+
+// concat()
+// → Combines arrays
+// → Returns new array
+
+// includes()
+// → Checks whether value exists
+// → Returns true/false
+
+// indexOf()
+// → Finds first index of a value
+// → Returns index or -1
+
+// join()
+// → Combines elements into a string
+// → Returns string
+
+// reverse()
+// → Reverses array
+// → Modifies original array
+
+// sort()
+// → Sorts array
+// → Modifies original array
+
+// forEach()
+// → Performs action for each element
+// → Returns undefined
+
+// map()
+// → Transforms elements
+// → Returns new array
+
+// filter()
+// → Selects matching elements
+// → Returns new array
+
+// find()
+// → Returns first matching element
+// → Not found = undefined
+
+// some()
+// → Checks if at least one element matches
+// → Returns true/false
+
+// every()
+// → Checks if all elements match
+// → Returns true/false
+
+// reduce()
+// → Combines elements into one final value
+
+// findIndex()
+// → Returns index of first matching element
+// → Not found = -1
+
+// flat()
+// → Flattens nested arrays
+// → Returns new array
+
+// flatMap()
+// → map() + flat(1)
+
+// Array.isArray()
+// → Checks whether value is an array
+// → Returns true/false
