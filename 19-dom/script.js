@@ -487,3 +487,218 @@ parent.removeChild(child);
 //
 // removeChild()
 // -> Parent removes child
+
+
+
+// ========================================
+// PART 10 - Event Listeners
+// ========================================
+
+let btn = document.querySelector("#btn");
+
+btn.addEventListener("click", () => {
+    console.log("Button clicked");
+});
+
+
+// Change text on click
+
+let title = document.querySelector("#title");
+
+btn.addEventListener("click", () => {
+    title.textContent = "DOM is Easy";
+});
+
+
+// Toggle class on click
+
+let box = document.querySelector("#box");
+
+let toggleBtn = document.querySelector("#toggleBtn");
+
+toggleBtn.addEventListener("click", () => {
+    box.classList.toggle("active");
+});
+
+
+// ========================================
+// PART 11 - Event Object
+// ========================================
+
+btn.addEventListener("click", (e) => {
+
+    console.log(e);
+
+    console.log(e.type);
+
+    console.log(e.target);
+
+});
+
+
+// ========================================
+// PART 12 - Forms & Input
+// ========================================
+
+let form = document.querySelector("#form");
+
+let username = document.querySelector("#username");
+
+let email = document.querySelector("#email");
+
+let output = document.querySelector("#output");
+
+
+// Submit Event
+
+form.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    console.log("Form Submitted");
+
+    console.log(username.value);
+
+    console.log(email.value);
+
+    output.innerHTML = `
+        Username: ${username.value} <br>
+        Email: ${email.value}
+    `;
+
+});
+
+
+// Input Event
+
+username.addEventListener("input", (e) => {
+
+    console.log(e.target.value);
+
+});
+
+
+// ========================================
+// PART 13 - DOM Traversal
+// ========================================
+
+let child = document.querySelector("#text2");
+
+
+// Parent Element
+
+console.log(child.parentElement);
+
+
+// Parent Children
+
+let parent = document.querySelector("#container");
+
+console.log(parent.children);
+
+
+// First Child
+
+console.log(parent.firstElementChild);
+
+
+// Last Child
+
+console.log(parent.lastElementChild);
+
+
+// Next Sibling
+
+console.log(child.nextElementSibling);
+
+
+// Previous Sibling
+
+console.log(child.previousElementSibling);
+
+
+// Traversing from child → parent → first child
+
+console.log(child.parentElement.firstElementChild);
+
+
+// ========================================
+// INTERVIEW REVISION
+// ========================================
+
+/*
+addEventListener()
+→ Adds an event listener to an element.
+
+Event Object
+→ Provides information about an event.
+
+event.target
+→ Element on which event occurred.
+
+event.type
+→ Type of event.
+
+value
+→ Current value of an input.
+
+input event
+→ Fires when input value changes.
+
+submit event
+→ Fires when form is submitted.
+
+preventDefault()
+→ Prevents the default browser action.
+
+parentElement
+→ Gets the parent element.
+
+children
+→ Gets all direct child elements.
+
+firstElementChild
+→ Gets the first child element.
+
+lastElementChild
+→ Gets the last child element.
+
+nextElementSibling
+→ Gets the next sibling element.
+
+previousElementSibling
+→ Gets the previous sibling element.
+*/
+
+
+// ========================================
+// IMPORTANT POINTS
+// ========================================
+
+/*
+1. addEventListener() is used to handle events.
+
+2. Event Object contains information about the event.
+
+3. event.target tells which element triggered the event.
+
+4. event.type tells which event occurred.
+
+5. input.value gives the current input value.
+
+6. preventDefault() prevents the default browser action.
+
+7. DOM Traversal means moving between related elements.
+
+8. parentElement moves from child to parent.
+
+9. children gives direct child elements.
+
+10. firstElementChild gives the first child.
+
+11. lastElementChild gives the last child.
+
+12. nextElementSibling moves to the next sibling.
+
+13. previousElementSibling moves to the previous sibling.
+*/
